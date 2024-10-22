@@ -49,11 +49,6 @@ export function WordSearchGeneratorComponent({
 		setWordBank(pickedWords)
 	}
 
-	const saveGridDetails = () => {
-		// Implement save functionality here
-		console.log('Grid details saved')
-	}
-
 	return (
 		<div className="min-h-screen bg-gray-900 text-gray-100 p-8">
 			<div className="max-w-2xl mx-auto space-y-6">
@@ -114,16 +109,17 @@ export function WordSearchGeneratorComponent({
 					>
 						Generate Grid
 					</Button>
+
 					<Button
-						onClick={saveGridDetails}
-						className="bg-green-500 hover:bg-green-600"
+						onClick={() => window.print()}
+						className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600"
 					>
-						Save Grid Details
+						Print Grid
 					</Button>
 				</div>
 
 				{grid.length > 0 && (
-					<div className="bg-white p-4 rounded">
+					<div className="printable-grid bg-white p-4 rounded">
 						<table className="w-full">
 							<tbody>
 								{grid.map((row, i) => (

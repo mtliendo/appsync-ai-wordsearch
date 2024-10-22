@@ -3,15 +3,17 @@ import { WordSearchGeneratorComponent } from '@/components/word-search-generator
 
 import { generateClient } from 'aws-amplify/data'
 import { type Schema } from '../amplify/data/resource'
-import { withAuthenticator } from '@aws-amplify/ui-react'
 
 const client = generateClient<Schema>()
 
 function Home() {
 	const handleGenerateWords = async (theme: string) => {
-		const res = await client.mutations.generateWordSearchWords({
-			theme,
-		})
+		const res = await client.mutations.generateWordSearchWords(
+			{
+				theme,
+			},
+			{ authMode: 'apiKey' }
+		)
 
 		console.log('Generated words:', res.data)
 		return res.data
@@ -33,4 +35,4 @@ function Home() {
 	)
 }
 
-export default withAuthenticator(Home)
+export default Home

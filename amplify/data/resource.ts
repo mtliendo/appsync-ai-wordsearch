@@ -18,7 +18,7 @@ const schema = a.schema({
 		.mutation()
 		.arguments({ theme: a.string().required() })
 		.returns(a.ref('AIGeneration'))
-		.authorization((allow) => [allow.authenticated()])
+		.authorization((allow) => [allow.publicApiKey()])
 		.handler(
 			a.handler.custom({
 				dataSource: 'BedrockDataSource',
@@ -34,5 +34,8 @@ export const data = defineData({
 	name: 'appsync-ai-wordsearch',
 	authorizationModes: {
 		defaultAuthorizationMode: 'userPool',
+		apiKeyAuthorizationMode: {
+			expiresInDays: 4,
+		},
 	},
 })
