@@ -5,17 +5,8 @@ const schema = a.schema({
 		words: a.string().array().required(),
 		title: a.string().required(),
 	}),
-	WordSearch: a
-		.model({
-			id: a.id().required(),
-			name: a.string().required(),
-			columns: a.integer().required(),
-			rows: a.integer().required(),
-			wordBank: a.string().array().required(),
-		})
-		.authorization((allow) => [allow.owner()]),
 	generateWordSearchWords: a
-		.mutation()
+		.query()
 		.arguments({ theme: a.string().required() })
 		.returns(a.ref('AIGeneration'))
 		.authorization((allow) => [allow.publicApiKey()])
@@ -33,9 +24,9 @@ export const data = defineData({
 	schema,
 	name: 'appsync-ai-wordsearch',
 	authorizationModes: {
-		defaultAuthorizationMode: 'userPool',
+		defaultAuthorizationMode: 'apiKey',
 		apiKeyAuthorizationMode: {
-			expiresInDays: 6,
+			expiresInDays: 30,
 		},
 	},
 })

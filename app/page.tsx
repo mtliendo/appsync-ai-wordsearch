@@ -8,10 +8,8 @@ const client = generateClient<Schema>()
 
 function Home() {
 	const handleGenerateWords = async (theme: string) => {
-		const res = await client.mutations.generateWordSearchWords(
-			{
-				theme,
-			},
+		const res = await client.queries.generateWordSearchWords(
+			{ theme },
 			{ authMode: 'apiKey' }
 		)
 

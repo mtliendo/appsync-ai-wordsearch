@@ -16,17 +16,20 @@ type WordSearchGeneratorComponentProps = {
 export function WordSearchGeneratorComponent({
 	onGenerateWords,
 }: WordSearchGeneratorComponentProps) {
-	const [columns, setColumns] = useState(8)
-	const [rows, setRows] = useState(8)
+	const [columns, setColumns] = useState(10)
+	const [rows, setRows] = useState(10)
 	const [theme, setTheme] = useState('')
 	const [words, setWords] = useState('')
 	const [grid, setGrid] = useState<string[][]>([])
 	const [wordBank, setWordBank] = useState<string[]>([])
+	const [buttonDisabled, setButtonDisabled] = useState(false)
 
 	const generateWords = async () => {
 		if (!theme) return
+		setButtonDisabled(true)
 		const data = await onGenerateWords(theme)
 		setWords(data?.words.join() as string)
+		setButtonDisabled(false)
 	}
 
 	const generateGrid = () => {
@@ -42,6 +45,7 @@ export function WordSearchGeneratorComponent({
 			dictionary,
 			upperCase: true,
 		}
+
 		const ws = new WordSearch(options)
 		const pickedWords = ws.data.words.map((word: { clean: true }) => word.clean)
 		setGrid(ws.data.grid)
@@ -88,6 +92,7 @@ export function WordSearchGeneratorComponent({
 				<Button
 					onClick={generateWords}
 					className="bg-pink-500 hover:bg-pink-600"
+					disabled={buttonDisabled}
 				>
 					Generate Words
 				</Button>
