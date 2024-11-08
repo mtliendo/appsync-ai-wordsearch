@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Wordsearch Generator
 
-## Getting Started
+## Overview
 
-First, run the development server:
+The AI Wordsearch Generator is a web application that allows users to create custom wordsearch puzzles. Users can enter their desired rows and columns, as well as a theme, and the application will generate a set of 10 words related to that theme. These words are then populated into a word bank, and users can click a "create grid" button to generate a wordsearch puzzle based on those words.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The application also includes a "print" button that allows users to print the wordsearch puzzle and word bank.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The AI Wordsearch Generator is built using the following technologies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Hosting**: AWS Amplify
+- **API**: AWS AppSync, which provides a direct integration with Amazon Bedrock for the language model
+- **Language Model**: Claude (but can be configured to use a different model)
+- **Frontend**: NextJS, with the help of the V0 UI library
+- **Backend**: AWS Amplify Gen 2
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If you're interested in contributing to the AI Wordsearch Generator project, please open an issue first so we can discuss your proposed changes. We welcome contributions from the community and look forward to collaborating on this project.
