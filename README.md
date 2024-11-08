@@ -1,4 +1,5 @@
 # AI Wordsearch Generator
+<img width="1745" alt="image" src="https://github.com/user-attachments/assets/f397a1ea-37c3-41dd-be6e-5e5d6aebfa89">
 
 ## Overview
 
@@ -15,6 +16,9 @@ The AI Wordsearch Generator is built using the following technologies:
 - **Language Model**: Claude (but can be configured to use a different model)
 - **Frontend**: NextJS, with the help of the V0 UI library
 - **Backend**: AWS Amplify Gen 2
+
+  <img width="1028" alt="image" src="https://github.com/user-attachments/assets/818664e8-4b58-48b2-b575-3a3d8b728591">
+
 
 ## Contributing
 
